@@ -1,5 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Image, TouchableOpacity} from "react-native";
+
 import colors from "../styles/colors";
 import { Login } from "../pages/Login";
 import { Home } from "../pages/Home";
@@ -8,18 +10,24 @@ import { CreditCard } from "../pages/CreditCard";
 
 const stackRoutes = createNativeStackNavigator();
 
-const AppRoutes: React.FC = () => (
-    <stackRoutes.Navigator headerMode='none' screenOptions={{
-        cardStyle:{
-            backgroundColor: colors.white
-        },
-    }}>
+function handleMenuPress(){
+    // navigation.navigate('Home');
+}
 
-        <stackRoutes.Screen name="Login" component={Login}/>
-        <stackRoutes.Screen name="Home" component={Home}/>
-        <stackRoutes.Screen name="Estacionamento" component={Estacionamento}/>
-        <stackRoutes.Screen name="CreditCard" component={CreditCard}/>
-        
+const AppRoutes: React.FC = () => (
+    <stackRoutes.Navigator>
+
+        <stackRoutes.Group
+            screenOptions={ {
+                 headerStyle: { backgroundColor: colors.dark_blue },
+                 headerTintColor: colors.white 
+                }}>
+    
+            <stackRoutes.Screen name="Login" component={Login} options={{ title: "EasyParking" }}/>
+            <stackRoutes.Screen name="Home" component={Home} options={{ title: "EasyParking" }}/>
+            <stackRoutes.Screen name="Estacionamento" component={Estacionamento} options={{ title: "EasyParking" }}/>
+            <stackRoutes.Screen name="CreditCard" component={CreditCard} options={{ title: "EasyParking" }}/>
+        </stackRoutes.Group>    
 
     </stackRoutes.Navigator>
 )

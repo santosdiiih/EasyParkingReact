@@ -3,23 +3,22 @@ import {Text, View, StyleSheet, Image, TouchableOpacity, SafeAreaView, ScrollVie
 import colors from "../styles/colors";
 import car from "../assets/splash.png";
 import {Header} from "../components/header";
+import { useNavigation, useRoute } from "@react-navigation/core";
 
 export function Home(){
 
     const [visible, setVisible] = useState(false);
+    const navigation = useNavigation();
 
     function handleVisible(){
+        navigation.navigate('Estacionamento')
         setVisible(true);
     }
 
     return(
             <SafeAreaView style={styles.container}>
                 
-                <View style={styles.cabecalho}>
-                <View>
-                    <Header />
-                </View>
-                </View>
+                
                 <ScrollView showsVerticalScrollIndicator={true}>
                     <View style={styles.backGroungGray}>
                         <View style={styles.containerOne}>
@@ -53,7 +52,7 @@ export function Home(){
                                 <View style={styles.textPage}>
                                     <Text> Utilize o saldo para {'\n'}estacionamento rotativo </Text>
                                 </View>
-                                <TouchableOpacity activeOpacity={0.8}> 
+                                <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('CreditCard')}> 
                                     <View style={styles.buttonBlue}>
                                         <Text style={styles.textButton}>Compre Crédito Aqui</Text>
                                     </View>

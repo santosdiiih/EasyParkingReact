@@ -26,7 +26,7 @@ export function Login(){
   return(
     <SafeAreaView style={styles.container}>
        <View>
-            <Header />
+            {/* <Header /> */}
        </View>
         
         <Text style={styles.titulo}> LOGIN</Text>
@@ -48,7 +48,7 @@ export function Login(){
         </View>
 
         <View style={styles.background}>
-            <Button title="Entrar" />
+            <Button title="Entrar" onPress={() => navigation.navigate('Home')} />
             <View style={styles.alignRow}>
                 <Text>Não tem Conta?</Text> 
                 <Text>Cadastre-se</Text>

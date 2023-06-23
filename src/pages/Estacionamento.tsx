@@ -3,17 +3,17 @@ import {Text, View, StyleSheet, Image, TouchableOpacity, SafeAreaView, TextInput
 import colors from "../styles/colors";
 import car from "../assets/splash.png";
 import placa from "../assets/placa.png";
-import add from "../assets/add.png"
-import menu from "../assets/menu.png";
+import add from "../assets/add.png";
 import { Button } from "../components/ButtonWhite";
-import {Header} from "../components/header";
+import { useNavigation, useRoute } from "@react-navigation/core";
+
 
 export function Estacionamento(){
+
+    const navigation = useNavigation();
+
     return(
         <SafeAreaView style={styles.container}>
-            <View>
-                <Header />
-            </View>
             <View>
                 <View style={styles.backgroundBlue}>
                     <View style={styles.alignRow}>
@@ -47,10 +47,10 @@ export function Estacionamento(){
                     </TouchableOpacity>
                 </View>
                 <View style={styles.AlignCenter}>
-                    <Button title="CONTINUAR"/>
+                    <Button title="CONTINUAR" onPress={() => navigation.navigate('Home')}/>
                 </View>
                 <View style={styles.AlignCenter}>
-                    <Button title="CANCELAR" style={styles.buttonRed}/>
+                    <Button title="CANCELAR" style={styles.buttonRed} onPress={() => navigation.navigate('Home')} />
                 </View>
             </View>
         </SafeAreaView>
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.dark_blue,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        marginTop: 50,
+        marginTop: 20,
     },
     backGroungGray: {
         width: "80%",
